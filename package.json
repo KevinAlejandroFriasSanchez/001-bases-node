@@ -1,0 +1,14 @@
+{
+  "name": "001-bases-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Alejandro Frias Sanchez",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^16.0.3"
+  }
+}
