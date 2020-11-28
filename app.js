@@ -1,18 +1,26 @@
 const argv = require('yargs')
-    .command('listar', 'imprime en pantalla la tabla en binario', {
+    .command('listar', 'imprime en pantalla la tabla de multiplicar', {
         base:{
             demand: true,
             alias: 'b'
         },
-       
+        limite:{
+            alias: 'l',
+            default: 10
+        }
+
 
     })
-    .command('crear', 'Crea un archivo con la tabla en binario', {
+    .command('crear', 'Crea un archivo con la tabla de multiplicar', {
         base:{
             demand: true,
             alias: 'b'
         },
-       
+        limite:{
+            alias: 'l',
+            default: 10
+        }
+
 
     })
     .help()
@@ -22,12 +30,13 @@ const multiplicar = require('./multiplicacion/multiplicacion');
 
 let comando = argv._[0];
 let base = argv.base;
-
+let limite = argv.limite;
 
 switch(comando) {
+    
     case `listar`:
     
-    multiplicar.listarTabla(base)
+    multiplicar.listarTabla(base, limite)
     .then ()
     .catch(error => console.log(`Ocurrio un error ${error}`));
     break;
@@ -35,11 +44,11 @@ switch(comando) {
     case `crear`:
     
     multiplicar
-        .crearArchivo(base)
+        .crearArchivo(base, limite)
     .then(archivo => console.log(`El archivo ${archivo} ha sido generado con exito`))
     .catch(error => console.log(`Ocurrio un error ${error}`));
    
     break;
     default:
     console.log(`Comando no reconocido`);
-} 
+}
